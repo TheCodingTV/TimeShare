@@ -1,10 +1,10 @@
-import Timer from './Components/TimerSingle'
+import TimerSingle from './Components/TimerSingle'
 import TimerMultiple from './Components/TimerMultiple'
 
 function App () {
   return (
     <div className="App">
-      <Timer totalSeconds={240} />
+      <TimerSingle totalSeconds={240} />
       <Timer 
         totalSeconds={240} 
         cover={'https://images.unsplash.com/photo-1575052814086-f385e2e2ad1b?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1770&q=80'}

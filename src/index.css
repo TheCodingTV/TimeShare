@@ -25,3 +25,12 @@ div {
 .App {
   text-align: center;
 }
+
+.center {
+  display: flex;
+  height: 100%;
+  min-height: 300px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
