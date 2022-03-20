@@ -1,7 +1,7 @@
 {
   "name": "timeshare",
   "private": true,
-  "version": "0.0.0",
+  "version": "0.0.1",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
@@ -10,19 +10,19 @@
     "build-storybook": "build-storybook"
   },
   "dependencies": {
-    "react": "^17.0.2",
-    "react-dom": "^17.0.2"
+    "react": "17.0.2",
+    "react-dom": "17.0.2"
   },
   "devDependencies": {
-    "@babel/core": "^7.17.5",
-    "@storybook/addon-actions": "^6.4.19",
-    "@storybook/addon-essentials": "^6.4.19",
-    "@storybook/addon-interactions": "^6.4.19",
-    "@storybook/addon-links": "^6.4.19",
-    "@storybook/react": "^6.4.19",
+    "@babel/core": "7.17.5",
+    "@storybook/addon-actions": "6.4.19",
+    "@storybook/addon-essentials": "6.4.19",
+    "@storybook/addon-interactions": "6.4.19",
+    "@storybook/addon-links": "6.4.19",
+    "@storybook/react": "6.4.19",
     "@storybook/testing-library": "0.0.9",
-    "@vitejs/plugin-react": "^1.0.7",
-    "babel-loader": "^8.2.3",
-    "vite": "^2.8.0"
+    "@vitejs/plugin-react": "1.2.0",
+    "babel-loader": "8.2.3",
+    "vite": "2.8.6"
   }
 }
