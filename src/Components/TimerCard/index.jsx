@@ -3,11 +3,12 @@ import PauseSVG from './pause-circle.svg'
 import sector from './sector'
 import './style.css'
 
-export default function Timer ({ onRunClick, step, isRunning, seconds, color='#364fc7' }) {
+export default function TimerCard ({ onRunClick, totalSeconds, isRunning, seconds, color='#364fc7' }) {
+  const step = parseFloat(seconds / totalSeconds, 2)
   const min = parseInt(seconds / 60)
   const sec = seconds % 60
   return (
-    <div className='timer-container-inner'>
+    <div className='timer-card'>
       <div className='timer-svg-container'>
         <svg viewBox="0 0 400 400" width="400" height="400" className='timer-svg'>
           <path id="sector" fill={color} stroke="none" fillRule="evenodd" d={sector.getSectorPath(step)} />

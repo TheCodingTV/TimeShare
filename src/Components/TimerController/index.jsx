@@ -1,6 +1,5 @@
 import React from 'react'
-import Timer from '../Timer'
-
+import TimerRow from '../TimerRow'
 export default class TimerController extends React.Component {
   constructor (props) {
     super(props)
@@ -9,7 +8,7 @@ export default class TimerController extends React.Component {
       isRunning: false,
     }
     this.t = null
-    this.speed = props.speed || 100
+    this.speed = props.speed || 1000
   }
 
   componentDidUpdate () {
@@ -55,14 +54,13 @@ export default class TimerController extends React.Component {
   }
   
   render () {
-    const { color, totalSeconds } = this.props
+    const { color, totalSeconds, Component = TimerRow } = this.props
     const { seconds, isRunning } = this.state
-    const step = parseFloat(seconds / totalSeconds, 2)
     return (
-      <Timer
+      <Component
         onRunClick={this.onRunClick}
         seconds={seconds}
-        step={step}
+        totalSeconds={totalSeconds}
         isRunning={isRunning}
         color={color}
       />

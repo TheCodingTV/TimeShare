@@ -1,0 +1,32 @@
+.timer-row {
+  height: 124px;
+  width: 100%;
+  border-radius: 4px;
+
+  background: linear-gradient(91.34deg, var(--secondary500) 14.58%, var(--secondary200) 84.19%);
+  /* border: 0.5px solid #EAEAEF; */
+  box-shadow: 0px 1px 4px rgba(33, 33, 52, 0.1);
+  margin-bottom: 40px;
+}
+
+.timer-row-primary {
+  background: linear-gradient(91.34deg, var(--primary500) 14.58%, var(--primary200) 84.19%);
+}
+
+.timer-row-secondary {
+  background: linear-gradient(91.34deg, var(--secondary500) 14.58%, var(--secondary200) 84.19%);
+}
+
+.timer-row-coverer {
+  height: 100%;
+  background-color: white;
+  float: right;
+}
+
+.round-button {
+  background-color: var(--primary600);
+  width: 40px;
+  height: 40px;
+  border-radius: 20px;
+  color: white
+}

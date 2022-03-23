@@ -6,7 +6,7 @@ const defaultConfig = [
   { id: 2, totalSeconds: 240, title: '反方', color: '#0b7285' }
 ]
 
-function TimerMultiple ({ cover, config = defaultConfig }) {
+function TimerMultiple ({ config = defaultConfig }) {
   const [runningId, setRunningId] = useState(null)
   const [ended, setEnded] = useState([])
   const timerRef = useRef([])
@@ -36,8 +36,7 @@ function TimerMultiple ({ cover, config = defaultConfig }) {
   }
   
   return (
-    <div className='timer-container'>
-      {cover && <div style={{ backgroundImage: `url(${cover})` }} className='timer-cover' />}
+    <div>
       {config.map(item => {
         return (
           <TimerController
