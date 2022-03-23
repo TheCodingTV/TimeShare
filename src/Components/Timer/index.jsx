@@ -2,11 +2,11 @@ import { useState, useRef } from 'react'
 import TimerController from '../TimerController'
 
 const defaultConfig = [
-  { id: 1, totalSeconds: 120, title: '正方', color: '#364fc7' },
-  { id: 2, totalSeconds: 240, title: '反方', color: '#0b7285' }
+  { id: 1, totalSeconds: 120 },
+  { id: 2, totalSeconds: 240 }
 ]
 
-function TimerMultiple ({ config = defaultConfig }) {
+export default function Timer ({ config = defaultConfig }) {
   const [runningId, setRunningId] = useState(null)
   const [ended, setEnded] = useState([])
   const timerRef = useRef([])
@@ -42,7 +42,7 @@ function TimerMultiple ({ config = defaultConfig }) {
           <TimerController
             key={item.id}
             totalSeconds={item.totalSeconds}
-            color={item.color}
+            type={item.type || 'primary'}
             onRun={() => onRun(item.id)}
             onPause={() => onPause(item.id)}
             onEnd={() => onEnd(item.id)}
@@ -53,5 +53,3 @@ function TimerMultiple ({ config = defaultConfig }) {
     </div>
   )
 }
-
-export default TimerMultiple

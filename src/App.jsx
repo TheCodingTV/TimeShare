@@ -1,4 +1,4 @@
-import TimerMultiple from './Components/TimerMultiple'
+import Timer from './Components/Timer'
 
 function App () {
   return (
