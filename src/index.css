@@ -4,10 +4,7 @@ body {
   min-height: 100%;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-}
-
-code {
-  font-family: -apple-system, Monaco, sans-serif;
+  font-family: -apple-system, 'Helvetica Neue', sans-serif;
 }
 
 div {
@@ -15,61 +12,47 @@ div {
   position: relative;
 }
 
-.App {
-  text-align: center;
-}
-
-.center {
-  display: flex;
-  height: 100%;
-  min-height: 300px;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-
 :root {
-/* Color styles */
---neutral900: rgba(33, 33, 52, 1);
---neutral800: rgba(50, 50, 77, 1);
---neutral700: rgba(74, 74, 106, 1);
---neutral600: rgba(102, 102, 135, 1);
---neutral500: rgba(142, 142, 169, 1);
---neutral400: rgba(165, 165, 186, 1);
---neutral300: rgba(192, 192, 207, 1);
---neutral200: rgba(220, 220, 228, 1);
---neutral150: rgba(234, 234, 239, 1);
---neutral100: rgba(246, 246, 249, 1);
---neutral0: rgba(255, 255, 255, 1);
---primary700: rgba(39, 31, 224, 1);
---primary600: rgba(73, 69, 255, 1);
---primary500: rgba(123, 121, 255, 1);
---primary200: rgba(217, 216, 255, 1);
---primary100: rgba(240, 240, 255, 1);
---danger700: rgba(183, 43, 26, 1);
---danger600: rgba(208, 43, 32, 1);
---danger500: rgba(238, 94, 82, 1);
---danger200: rgba(245, 192, 184, 1);
---danger100: rgba(252, 236, 234, 1);
---success700: rgba(47, 104, 70, 1);
---success600: rgba(50, 128, 72, 1);
---success500: rgba(92, 177, 118, 1);
---success200: rgba(198, 240, 194, 1);
---success100: rgba(234, 251, 231, 1);
---warning700: rgba(190, 93, 1, 1);
---warning600: rgba(217, 130, 47, 1);
---warning500: rgba(242, 157, 65, 1);
---warning200: rgba(250, 231, 185, 1);
---warning100: rgba(253, 244, 220, 1);
---secondary700: rgba(0, 96, 150, 1);
---secondary600: rgba(12, 117, 175, 1);
---secondary500: rgba(102, 183, 241, 1);
---secondary200: rgba(184, 225, 255, 1);
---secondary100: rgba(234, 245, 255, 1);
---alternative700: rgba(131, 18, 209, 1);
---alternative600: rgba(151, 54, 232, 1);
---alternative500: rgba(172, 115, 230, 1);
---alternative200: rgba(224, 193, 244, 1);
---alternative100: rgba(246, 236, 252, 1);
+  /* Strapi color schema - https://www.figma.com/community/file/1050701975985000987 */
+  --neutral900: rgba(33, 33, 52, 1);
+  --neutral800: rgba(50, 50, 77, 1);
+  --neutral700: rgba(74, 74, 106, 1);
+  --neutral600: rgba(102, 102, 135, 1);
+  --neutral500: rgba(142, 142, 169, 1);
+  --neutral400: rgba(165, 165, 186, 1);
+  --neutral300: rgba(192, 192, 207, 1);
+  --neutral200: rgba(220, 220, 228, 1);
+  --neutral150: rgba(234, 234, 239, 1);
+  --neutral100: rgba(246, 246, 249, 1);
+  --neutral0: rgba(255, 255, 255, 1);
+  --primary700: rgba(39, 31, 224, 1);
+  --primary600: rgba(73, 69, 255, 1);
+  --primary500: rgba(123, 121, 255, 1);
+  --primary200: rgba(217, 216, 255, 1);
+  --primary100: rgba(240, 240, 255, 1);
+  --danger700: rgba(183, 43, 26, 1);
+  --danger600: rgba(208, 43, 32, 1);
+  --danger500: rgba(238, 94, 82, 1);
+  --danger200: rgba(245, 192, 184, 1);
+  --danger100: rgba(252, 236, 234, 1);
+  --success700: rgba(47, 104, 70, 1);
+  --success600: rgba(50, 128, 72, 1);
+  --success500: rgba(92, 177, 118, 1);
+  --success200: rgba(198, 240, 194, 1);
+  --success100: rgba(234, 251, 231, 1);
+  --warning700: rgba(190, 93, 1, 1);
+  --warning600: rgba(217, 130, 47, 1);
+  --warning500: rgba(242, 157, 65, 1);
+  --warning200: rgba(250, 231, 185, 1);
+  --warning100: rgba(253, 244, 220, 1);
+  --secondary700: rgba(0, 96, 150, 1);
+  --secondary600: rgba(12, 117, 175, 1);
+  --secondary500: rgba(102, 183, 241, 1);
+  --secondary200: rgba(184, 225, 255, 1);
+  --secondary100: rgba(234, 245, 255, 1);
+  --alternative700: rgba(131, 18, 209, 1);
+  --alternative600: rgba(151, 54, 232, 1);
+  --alternative500: rgba(172, 115, 230, 1);
+  --alternative200: rgba(224, 193, 244, 1);
+  --alternative100: rgba(246, 236, 252, 1);
 }

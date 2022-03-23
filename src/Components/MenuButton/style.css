@@ -1,0 +1,22 @@
+
+.menu-button {
+  padding: 8px 12px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  height: 32px;
+  margin-bottom: 8px;
+  border-radius: 4px;
+
+  cursor: pointer;
+  color: var(--neutral500);
+}
+
+.menu-button-active {
+  color: var(--primary600);
+  background-color: var(--primary100);
+}
+
+.menu-button-text {
+  font-size: 14px;
+}

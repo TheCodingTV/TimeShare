@@ -1,9 +1,9 @@
 import Timer from './Components/Timer'
 
-function App () {
+export default function App () {
   return (
     <div className="App">
-      <TimerMultiple
+      <Timer
         config={[
           { id: 1, totalSeconds: 120 },
           { id: 2, totalSeconds: 240 }
@@ -12,5 +12,3 @@ function App () {
     </div>
   )
 }
-
-export default App
