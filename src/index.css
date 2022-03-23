@@ -5,6 +5,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: -apple-system, 'Helvetica Neue', sans-serif;
+  background-color: #F6F6F9;
 }
 
 div {
@@ -55,4 +56,30 @@ div {
   --alternative500: rgba(172, 115, 230, 1);
   --alternative200: rgba(224, 193, 244, 1);
   --alternative100: rgba(246, 236, 252, 1);
+}
+
+.app {
+  display: flex;
+  flex-direction: row;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  padding: 56px 80px;
+  width: 100%;
+}
+
+h1 {
+  font-style: normal;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 40px;
+}
+
+.subtitle {
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 24px;
+  margin-bottom: 40px;
 }

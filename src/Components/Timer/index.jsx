@@ -1,12 +1,13 @@
-import { useState, useRef } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import TimerController from '../TimerController'
+import TimerRow from '../TimerRow'
 
 const defaultConfig = [
-  { id: 1, totalSeconds: 120 },
-  { id: 2, totalSeconds: 240 }
+  { id: 1, totalSeconds: 120, Component: TimerRow },
+  { id: 2, totalSeconds: 240, Component: TimerRow }
 ]
 
-export default function Timer ({ config = defaultConfig }) {
+export default function Timer ({ config = defaultConfig, timerId }) {
   const [runningId, setRunningId] = useState(null)
   const [ended, setEnded] = useState([])
   const timerRef = useRef([])
@@ -40,6 +41,7 @@ export default function Timer ({ config = defaultConfig }) {
       {config.map(item => {
         return (
           <TimerController
+            Component={item.Component}
             key={item.id}
             totalSeconds={item.totalSeconds}
             type={item.type || 'primary'}
@@ -47,6 +49,7 @@ export default function Timer ({ config = defaultConfig }) {
             onPause={() => onPause(item.id)}
             onEnd={() => onEnd(item.id)}
             ref={ref => { timerRef.current[item.id] = ref }}
+            timerId={timerId}
           />
         )
       })}

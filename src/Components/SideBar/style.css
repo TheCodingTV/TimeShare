@@ -1,0 +1,18 @@
+.side-bar {
+  background-color: var(--neutral0);
+  width: 265px;
+  height: 100vh;
+
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+}
+
+.side-bar-label {
+  padding: 8px 12px;
+  font-weight: 700;
+  font-size: 11px;
+  line-height: 16px;
+  color: var(--neutral600);
+  margin-bottom: 8px;
+}

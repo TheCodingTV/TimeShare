@@ -11,7 +11,11 @@ export default class TimerController extends React.Component {
     this.speed = props.speed || 1000
   }
 
-  componentDidUpdate () {
+  componentDidUpdate (prevProps) {
+    if (prevProps.timerId !== this.props.timerId) {
+      return this.reset()
+    }
+
     if (this.state.isRunning) {
       if (this.state.seconds > 0) {
         this.t = setTimeout(() => this.setState({seconds: this.state.seconds - 1}), this.speed)
@@ -46,6 +50,11 @@ export default class TimerController extends React.Component {
   stop = () => {
     setTimeout(this.t)
     this.setState({ isRunning: false })
+  }
+
+  reset = () => {
+    setTimeout(this.t)
+    this.setState({ isRunning: false, seconds: this.props.totalSeconds })
   }
 
   run = () => {
