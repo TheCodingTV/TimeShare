@@ -1,11 +1,17 @@
 .side-bar {
   background-color: var(--neutral0);
-  width: 265px;
+  width: 285px;
   height: 100vh;
 
   padding: 12px 0;
   display: flex;
   flex-direction: column;
+}
+
+@media screen and (max-width: 500px) {
+  .side-bar {
+    width: 225px;
+  }
 }
 
 .side-bar-label {
