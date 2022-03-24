@@ -22,21 +22,26 @@ const defaultConfig = [
 export default function SideBar ({ config = defaultConfig }) {
   return (
     <div className='side-bar'>
-      {config.map((section, index) => {
-        return (
-          <div className='side-bar-section' key={index}>
-            <div className='side-bar-label'>{section.title}</div>
-            {section.items.map(item => {
-              return <MenuButton
-                key={item.title}
-                active={item.active}
-                onClick={item.onClick}
-                text={item.title}
-              />
-            })}
-          </div>
-        )
-      })}
+      <div className='side-bar-top'>
+        <img src='/src/Assets/timeshare-full.svg' className='side-bar-logo' />
+      </div>
+      <div className='side-bar-content'>
+        {config.map((section, index) => {
+          return (
+            <div className='side-bar-section' key={index}>
+              <div className='side-bar-label'>{section.title}</div>
+              {section.items.map(item => {
+                return <MenuButton
+                  key={item.title}
+                  active={item.active}
+                  onClick={item.onClick}
+                  text={item.title}
+                />
+              })}
+            </div>
+          )
+        })}
+      </div>
     </div>
   )
 }
