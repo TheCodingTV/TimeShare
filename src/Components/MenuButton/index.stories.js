@@ -2,7 +2,7 @@ import React from 'react';
 import MenuButton from './index';
 
 export default {
-  title: 'MenuButton/MenuButton',
+  title: 'General/MenuButton',
   component: MenuButton
 };
 

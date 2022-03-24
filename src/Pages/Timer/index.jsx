@@ -31,6 +31,13 @@ export default function App () {
     ? myTimers.find(i => i.id === timerId).config
     : []
 
+  const onMoveNext = () => {
+    if (currentTimerConfig[timerSectionStep + 1]) {
+      setTimerSectionStep(timerSectionStep + 1)
+    }
+  }
+  
+
   const sideBarConfig = [
     {
       title: '我的收藏',
@@ -66,7 +73,9 @@ export default function App () {
         <div className='subtitle'>{currentTimerSection.description}</div>
         <Timer
           config={currentTimerSection.timerConfig}
-          timerId={`${timerId}_${timerSectionStep}`}
+          sectionId={`${timerId}_${timerSectionStep}`}
+          onMoveNext={onMoveNext}
+          hasNextStep={currentTimerConfig.length !== timerSectionStep + 1}
         />
       </div>
     </div>

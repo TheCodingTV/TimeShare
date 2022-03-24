@@ -1,0 +1,40 @@
+
+.button {
+  font-size: 14px;
+  display: flex;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 16px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  width: auto;
+}
+
+.button-full {
+  width: 100%;
+}
+
+.button-primary {
+  background-color: var(--primary600);
+  color: var(--neutral0);
+}
+
+.button-primary:hover {
+  background-color: var(--primary500);
+}
+
+.button-secondary {
+  background-color: var(--primary100);
+  color: var(--primary600);
+  border: 1px solid var(--primary200);
+}
+
+.button-secondary:hover {
+  background-color: var(--neutral0);
+}
+
+.button-size-s { height: 32px; }
+.button-size-m { height: 36px; }
+.button-size-l { height: 40px; }

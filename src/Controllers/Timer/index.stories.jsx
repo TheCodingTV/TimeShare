@@ -19,7 +19,7 @@ export const RowTwo = Template.bind({});
 RowTwo.args = {
   config: [
     { id: 1, totalSeconds: 120 },
-    { id: 2, totalSeconds: 240, type: 'secondary', component: 'card' }
+    { id: 2, totalSeconds: 240, type: 'secondary' }
   ]
 }
 

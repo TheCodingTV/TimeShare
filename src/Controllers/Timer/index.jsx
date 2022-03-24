@@ -1,13 +1,16 @@
-import { useState, useRef } from 'react'
+import { useEffect, useState, useRef } from 'react'
 import TimerController from '../TimerController'
+import Select from '../../Components/Select'
 import TimerCard from '../../Components/TimerCard'
 import TimerRow from '../../Components/TimerRow'
 
-export default function Timer ({ config, timerId }) {
+export default function Timer ({ config, onMoveNext, sectionId, hasNextStep }) {
   /* give each section a id based on index */
-  config = config.map((_, idx) => ({ ..._, id: idx + 1 }))
+  config = config.map((_, idx) => ({ ..._, id: sectionId + '_' + (idx + 1) }))
   
   const [runningId, setRunningId] = useState(null)
+  const [autoNextSection, setAutoNextSection] = useState(true)
+  const [autoStartSection, setAutoStartSection] = useState(false)
   const [ended, setEnded] = useState([])
   const timerRef = useRef([])
 
@@ -16,7 +19,7 @@ export default function Timer ({ config, timerId }) {
   }
 
   const onRun = id => {
-    if (runningId) {
+    if (runningId && (id !== runningId)) {
       pauseTimer(runningId)
     }
     setRunningId(id)
@@ -34,10 +37,25 @@ export default function Timer ({ config, timerId }) {
     }
     setEnded(ended.concat([id]))
   }
-  
+
+  useEffect(() => {
+    if (autoNextSection && ended.length === config.length) {
+      onMoveNext()
+    }
+  }, [ended])
+
+  useEffect(() => {
+    if (autoStartSection) {
+      const firstId = config[0].id
+      timerRef.current[firstId].run()
+    }
+
+    setEnded([])
+  }, [sectionId])
+
   return (
     <div className='timer-wrapper'>
-      {config.map(item => {
+      {config.map((item, idx) => {
         let Component = TimerRow
         if (item.component === 'card') Component = TimerCard
         return (
@@ -50,10 +68,22 @@ export default function Timer ({ config, timerId }) {
             onPause={() => onPause(item.id)}
             onEnd={() => onEnd(item.id)}
             ref={ref => { timerRef.current[item.id] = ref }}
-            timerId={timerId}
+            sectionId={sectionId}
           />
         )
       })}
+      {hasNextStep &&
+        <Select
+          onClick={() => { setAutoNextSection(!autoNextSection) }}
+          selected={autoNextSection}
+          label='自动进入下一环节'
+        />}
+      {hasNextStep &&
+        <Select
+          onClick={() => { setAutoStartSection(!autoStartSection) }}
+          selected={autoStartSection}
+          label='自动开始下一环节'
+        />}
     </div>
   )
 }
