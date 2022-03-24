@@ -1,6 +1,5 @@
 import React from 'react';
 import Timer from './index';
-import TimerCard from '../TimerCard'
 
 export default {
   title: 'Timer/Timer',
@@ -20,14 +19,14 @@ export const RowTwo = Template.bind({});
 RowTwo.args = {
   config: [
     { id: 1, totalSeconds: 120 },
-    { id: 2, totalSeconds: 240, type: 'secondary' }
+    { id: 2, totalSeconds: 240, type: 'secondary', component: 'card' }
   ]
 }
 
 export const CardOne = Template.bind({});
 CardOne.args = {
   config: [
-    { id: 1, totalSeconds: 120, Component: TimerCard }
+    { id: 1, totalSeconds: 120, component: 'card' }
   ]
 }
 

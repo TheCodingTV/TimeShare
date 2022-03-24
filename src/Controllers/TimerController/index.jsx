@@ -1,5 +1,6 @@
 import React from 'react'
-import TimerRow from '../TimerRow'
+import TimerRow from '../../Components/TimerRow'
+
 export default class TimerController extends React.Component {
   constructor (props) {
     super(props)
@@ -63,7 +64,7 @@ export default class TimerController extends React.Component {
   }
   
   render () {
-    const { type, totalSeconds, Component = TimerRow } = this.props
+    const { type = 'primary', totalSeconds, Component = TimerRow } = this.props
     const { seconds, isRunning } = this.state
     return (
       <Component

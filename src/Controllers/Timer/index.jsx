@@ -1,13 +1,12 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useRef } from 'react'
 import TimerController from '../TimerController'
-import TimerRow from '../TimerRow'
+import TimerCard from '../../Components/TimerCard'
+import TimerRow from '../../Components/TimerRow'
 
-const defaultConfig = [
-  { id: 1, totalSeconds: 120, Component: TimerRow },
-  { id: 2, totalSeconds: 240, Component: TimerRow }
-]
-
-export default function Timer ({ config = defaultConfig, timerId }) {
+export default function Timer ({ config, timerId }) {
+  /* give each section a id based on index */
+  config = config.map((_, idx) => ({ ..._, id: idx + 1 }))
+  
   const [runningId, setRunningId] = useState(null)
   const [ended, setEnded] = useState([])
   const timerRef = useRef([])
@@ -37,14 +36,16 @@ export default function Timer ({ config = defaultConfig, timerId }) {
   }
   
   return (
-    <div>
+    <div className='timer-wrapper'>
       {config.map(item => {
+        let Component = TimerRow
+        if (item.component === 'card') Component = TimerCard
         return (
           <TimerController
-            Component={item.Component}
+            Component={Component}
             key={item.id}
             totalSeconds={item.totalSeconds}
-            type={item.type || 'primary'}
+            type={item.type}
             onRun={() => onRun(item.id)}
             onPause={() => onPause(item.id)}
             onEnd={() => onEnd(item.id)}
