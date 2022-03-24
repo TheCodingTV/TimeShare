@@ -1,4 +1,5 @@
 import MenuButton from '../MenuButton'
+import Logo from '../../Assets/timeshare-full.svg'
 import './style.css'
 
 const defaultConfig = [
@@ -23,7 +24,7 @@ export default function SideBar ({ config = defaultConfig }) {
   return (
     <div className='side-bar'>
       <div className='side-bar-top'>
-        <img src='/src/Assets/timeshare-full.svg' className='side-bar-logo' />
+        <img src={Logo} className='side-bar-logo' />
       </div>
       <div className='side-bar-content'>
         {config.map((section, index) => {
