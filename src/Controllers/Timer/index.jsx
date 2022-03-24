@@ -12,7 +12,7 @@ export default function Timer ({ config, timerId }) {
   const timerRef = useRef([])
 
   const pauseTimer = id => {
-    timerRef.current[id].stop()
+    timerRef.current[id]?.stop()
   }
 
   const onRun = id => {
