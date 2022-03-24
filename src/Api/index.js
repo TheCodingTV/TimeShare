@@ -36,22 +36,22 @@ export async function getMyTimers () {
           title: '🦸‍♂️ 正方二辩驳论',
           description: '正方二辩针对反方观点做出反驳，时间为2分钟',
           timerConfig: [
-            { totalSeconds: 10 },
+            { totalSeconds: 120 },
           ]
         },
         { 
           title: '🦸‍♂️ 反方二辩驳论',
           description: '反方二辩针对正方观点做出反驳，时间为2分钟',
           timerConfig: [
-            { totalSeconds: 8, type: 'secondary' },
+            { totalSeconds: 120, type: 'secondary' },
           ]
         },
         {
           title: '👥 正反二辩对辩',
           description: '正方二辩对辩反方二辩，时间各为1分30秒，双方不可打断对方未完成之发言，一方时间完毕后，另一方可继续发言至时间结束',
           timerConfig: [
-            { totalSeconds: 8 },
-            { totalSeconds: 8, type: 'secondary' },
+            { totalSeconds: 90 },
+            { totalSeconds: 90, type: 'secondary' },
           ]
         },
         { 

@@ -55,7 +55,7 @@ export default function Timer ({ config, onMoveNext, sectionId, hasNextStep }) {
 
   return (
     <div className='timer-wrapper'>
-      {config.map((item, idx) => {
+      {config.map(item => {
         let Component = TimerRow
         if (item.component === 'card') Component = TimerCard
         return (
