@@ -9,6 +9,7 @@
   padding: 24px;
   cursor: pointer;
   background-color: var(--neutral0);
+  min-width: 260px;
 }
 
 .card-select-active {

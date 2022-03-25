@@ -1,11 +1,12 @@
 import './style.css'
 
-export default function ButtonMenu ({ Icon, text, active, onClick }) {
+export default function ButtonMenu ({ className, Icon, text, active, onClick }) {
   return (
     <div 
       className={`
         menu-button
         ${active ? 'menu-button-active' : ''}
+        ${className ? className : ''}
       `}
       onClick={onClick}
     >

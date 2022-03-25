@@ -6,7 +6,8 @@ export default function Button ({
   children,
   onClick,
   full = false,
-  style = {}
+  style = {},
+  className
 }) {
   return (
     <div style={style} onClick={onClick} className={`
@@ -14,6 +15,7 @@ export default function Button ({
       button-${type}
       button-size-${size}
       ${full ? 'button-full' : ''}
+      ${className ? className : ''}
     `}>
       {children}
     </div>

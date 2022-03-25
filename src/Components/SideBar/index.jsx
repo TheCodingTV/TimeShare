@@ -20,12 +20,21 @@ const defaultConfig = [
   }
 ]
 
-export default function SideBar ({ config = defaultConfig }) {
+export default function SideBar ({ config = defaultConfig, secondary = false, title }) {
   return (
-    <div className='side-bar'>
-      <div className='side-bar-top'>
-        <img src={Logo} className='side-bar-logo' />
-      </div>
+    <div className={`
+      side-bar
+      ${secondary ? 'side-bar-secondary' : ''}
+    `}>
+      {!secondary
+        ? <div className='side-bar-top'>
+            <img src={Logo} className='side-bar-logo' />
+          </div>
+        : <div className='side-bar-top-secondard'>
+            <div>{title}</div>
+            <div className='side-bar-divider' />
+          </div>
+      }
       <div className='side-bar-content'>
         {config.map((section, index) => {
           return (
@@ -37,6 +46,7 @@ export default function SideBar ({ config = defaultConfig }) {
                   active={item.active}
                   onClick={item.onClick}
                   text={item.title}
+                  className={item.className}
                 />
               })}
             </div>

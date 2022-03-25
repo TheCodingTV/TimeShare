@@ -18,6 +18,12 @@ export default class TimerController extends React.Component {
     }
   }
 
+  componentWillUnmount () {
+    if (this.t) {
+      clearInterval(this.t)
+    }
+  }
+
   onRunClick = () => {
     if (this.state.isRunning) {
       this.stop()

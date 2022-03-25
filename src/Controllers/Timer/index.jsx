@@ -22,6 +22,8 @@ export default function Timer ({ config, onMoveNext, sectionId, hasNextStep }) {
     if (runningId && (id !== runningId)) {
       pauseTimer(runningId)
     }
+    console.log(' --- on run --- ')
+    console.log(id)
     setRunningId(id)
     setEnded(ended.filter(i => i !== id))
   }
@@ -46,8 +48,13 @@ export default function Timer ({ config, onMoveNext, sectionId, hasNextStep }) {
 
   useEffect(() => {
     if (autoStartSection) {
-      const firstId = config[0].id
-      timerRef.current[firstId].run()
+      if (!config[0]) {
+        setAutoStartSection(false)
+      } else {
+        const firstId = config[0].id
+        timerRef.current[firstId].run()
+        onRun(firstId)
+      }
     }
 
     setEnded([])

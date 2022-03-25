@@ -5,11 +5,13 @@ export default function CardSelect ({
   title,
   description,
   onClick = () => {},
+  className
 }) {
   return (
     <div onClick={onClick} className={`
       card-select
       ${selected ? 'card-select-active' : ''}
+      ${className ? className : ''}
     `}> 
       <div className='card-select-ratio'>
         <div className='card-select-ratio-circle'>
