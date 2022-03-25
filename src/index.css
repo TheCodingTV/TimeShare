@@ -84,3 +84,16 @@ h1 {
   line-height: 24px;
   margin-bottom: 40px;
 }
+
+.flex-row {
+  display: flex;
+  flex-direction: row;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.mt8 {
+  margin-top: 8px;
+}

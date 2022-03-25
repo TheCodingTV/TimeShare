@@ -1,4 +1,4 @@
-import MenuButton from '../MenuButton'
+import ButtonMenu from '../ButtonMenu'
 import Logo from '../../Assets/timeshare-full.svg'
 import './style.css'
 
@@ -32,7 +32,7 @@ export default function SideBar ({ config = defaultConfig }) {
             <div className='side-bar-section' key={index}>
               <div className='side-bar-label'>{section.title}</div>
               {section.items.map(item => {
-                return <MenuButton
+                return <ButtonMenu
                   key={item.title}
                   active={item.active}
                   onClick={item.onClick}

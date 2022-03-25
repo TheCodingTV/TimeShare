@@ -1,6 +1,6 @@
 import './style.css'
 
-export default function MenuButton ({ Icon, text, active, onClick }) {
+export default function ButtonMenu ({ Icon, text, active, onClick }) {
   return (
     <div 
       className={`

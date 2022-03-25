@@ -1,12 +1,12 @@
 import React from 'react';
-import MenuButton from './index';
+import ButtonMenu from './index';
 
 export default {
-  title: 'General/MenuButton',
-  component: MenuButton
+  title: 'General/ButtonMenu',
+  component: ButtonMenu
 };
 
-const Template = (args) => <MenuButton {...args} />;
+const Template = (args) => <ButtonMenu {...args} />;
 
 export const Default = Template.bind({})
 Default.args = {

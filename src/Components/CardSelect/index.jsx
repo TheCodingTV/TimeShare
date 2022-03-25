@@ -4,7 +4,7 @@ export default function CardSelect ({
   selected,
   title,
   description,
-  onClick
+  onClick = () => {},
 }) {
   return (
     <div onClick={onClick} className={`
