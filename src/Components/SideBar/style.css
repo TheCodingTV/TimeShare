@@ -1,6 +1,6 @@
 .side-bar {
   background-color: var(--neutral0);
-  width: 285px;
+  min-width: 235px;
   height: 100vh;
   overflow: auto;
 

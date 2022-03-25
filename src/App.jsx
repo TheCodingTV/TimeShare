@@ -7,12 +7,10 @@ export default function App () {
   const [route, setRoute] = useState('create-timer')
   const [timerConfig, setTimerConfig] = useState()
   const [timerId, setTimerId] = useState(null)
-  const [timerTitle, setTimerTitle] = useState('')
 
   const onTimerClick = (timer, idx) => {
-    setTimerConfig(timer.config)
+    setTimerConfig(timer)
     setTimerId(timer.id || (`local_${idx}`))
-    setTimerTitle(timer.title)
     setRoute('timer')
   }
 
@@ -23,7 +21,7 @@ export default function App () {
   return (
     <Layout onTimerClick={onTimerClick} onCreateClick={onCreateClick}>
       {route === 'create-timer' && <CreateTimer />}
-      {route === 'timer' && <Timer timerConfig={timerConfig} timerId={timerId} timerTitle={timerTitle} />}
+      {route === 'timer' && <Timer timerConfig={timerConfig} timerId={timerId} />}
     </Layout>
   )
 }

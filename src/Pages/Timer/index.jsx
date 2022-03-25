@@ -2,7 +2,8 @@ import { useState, useEffect } from 'react'
 import SideBar from '../../Components/SideBar'
 import Timer from '../../Controllers/Timer'
 
-export default function TimerPage ({ timerConfig, timerId, timerTitle }) {
+export default function TimerPage ({ timerConfig, timerId }) {
+  const { config, title } = timerConfig
   const [timerSectionStep, setTimerSectionStep] = useState(0)
 
   useEffect(() => {
@@ -14,7 +15,7 @@ export default function TimerPage ({ timerConfig, timerId, timerTitle }) {
   }
 
   const onMoveNext = () => {
-    if (timerConfig[timerSectionStep + 1]) {
+    if (config[timerSectionStep + 1]) {
       setTimerSectionStep(timerSectionStep + 1)
     }
   }
@@ -22,8 +23,8 @@ export default function TimerPage ({ timerConfig, timerId, timerTitle }) {
   const sideBarConfig = [
     {
       title: '当前计时器',
-      items: timerConfig
-        ? timerConfig.map((_, idx) => ({
+      items: config
+        ? config.map((_, idx) => ({
           title: _.title,
           active: idx === timerSectionStep,
           onClick: () => onSideBarClick(idx)
@@ -32,7 +33,7 @@ export default function TimerPage ({ timerConfig, timerId, timerTitle }) {
     }
   ]
 
-  const currentTimerSection = timerConfig[timerSectionStep] || {
+  const currentTimerSection = config[timerSectionStep] || {
     title: '',
     description: '',
     timerConfig: []
@@ -40,7 +41,7 @@ export default function TimerPage ({ timerConfig, timerId, timerTitle }) {
 
   return (
     <div className="app">
-      <SideBar config={sideBarConfig} secondary title={timerTitle} />
+      <SideBar config={sideBarConfig} secondary title={title} />
       <div className='content'>
         <h1>{currentTimerSection.title}</h1>
         <div className='subtitle'>{currentTimerSection.description}</div>
@@ -48,7 +49,7 @@ export default function TimerPage ({ timerConfig, timerId, timerTitle }) {
           config={currentTimerSection.timerConfig}
           sectionId={`${timerId}_${timerSectionStep}`}
           onMoveNext={onMoveNext}
-          hasNextStep={timerConfig.length !== timerSectionStep + 1}
+          hasNextStep={config.length !== timerSectionStep + 1}
         />
       </div>
     </div>
