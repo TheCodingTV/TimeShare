@@ -1,0 +1,65 @@
+.card-select {
+  display: flex;
+  display: inline-flex;
+  flex-direction: row;
+  align-items: center;
+  border-radius: 4px;
+  border: 1px solid var(--neutral200);
+  color: var(--neutral300);
+  padding: 24px;
+  cursor: pointer;
+  background-color: var(--neutral0);
+}
+
+.card-select-active {
+  border: 1px solid var(--primary200);
+  background-color: var(--primary100);
+  color: var(--primary600);
+}
+
+.card-select-content {
+  margin-left: 16px;
+  display: flex;
+  flex-direction: column;
+}
+
+.card-select-title {
+  font-weight: bold;
+  color: var(--neutral800);
+  margin-bottom: 8px;
+  font-size: 14px;
+}
+
+.card-select-active .card-select-title {
+  color: var(--primary600);
+}
+
+.card-select-description {
+  font-size: 12px;
+  color: var(--neutral600);
+}
+
+.card-select-active .card-select-description {
+  color: var(--primary600);
+}
+
+.card-select-ratio-circle {
+  height: 20px;
+  width: 20px;
+  border-radius: 10px;
+  border: 1px solid var(--neutral300);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card-select-active .card-select-ratio-circle {
+  border: 1px solid var(--primary600); 
+}
+
+.card-select-ratio-circle-inner {
+  height: 12px;
+  width: 12px;
+  border-radius: 6px;
+  background-color: var(--primary600);
+}

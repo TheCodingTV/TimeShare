@@ -27,7 +27,7 @@ export default function App () {
     getMyTimers()
   }, [])
 
-  const currentTimerConfig = (myTimers[0] && typeof timerId === 'number')
+  const currentTimerConfig = (myTimers[0] && timerId)
     ? myTimers.find(i => i.id === timerId).config
     : []
 

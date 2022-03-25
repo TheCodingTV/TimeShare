@@ -50,13 +50,15 @@ export default class TimerController extends React.Component {
 
     this.t = setInterval(() => {
       if (this.state.seconds === 0) {
-        this.setState({ isRunning: false })
         if (this.props.onEnd) {
           this.props.onEnd()
         }
         clearInterval(this.t)
       } else {
-        this.setState({ seconds: this.state.seconds - 1 })
+        this.setState({
+          seconds: this.state.seconds - 1,
+          isRunning: this.state.seconds === 1 ? false : true
+        })
       }
     }, this.speed)
   }
