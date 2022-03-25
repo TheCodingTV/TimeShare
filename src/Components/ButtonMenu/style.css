@@ -10,9 +10,19 @@
 
   cursor: pointer;
   color: var(--neutral500);
+  transition: all 0.15s ease;
+}
+
+.menu-button:hover {
+  background-color: var(--neutral100);
 }
 
 .menu-button-active {
+  color: var(--primary600);
+  background-color: var(--primary100);
+}
+
+.menu-button-active:hover {
   color: var(--primary600);
   background-color: var(--primary100);
 }

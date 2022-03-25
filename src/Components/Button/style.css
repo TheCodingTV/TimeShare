@@ -10,6 +10,8 @@
   cursor: pointer;
   font-weight: 500;
   width: auto;
+
+  transition: all 0.15s ease;
 }
 
 .button-full {

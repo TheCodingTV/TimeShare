@@ -78,7 +78,7 @@ export default function CreateTimer () {
   }
 
   return (
-    <div className='content'>
+    <div>
       <div className='create-timer-label-main'>计时器名称</div>
       <input type='text' onChange={onTimerTitleChange} value={timerTitle} className='input-main' placeholder='计时器名称' />
       {config.map((item, idx) => {
@@ -106,11 +106,11 @@ export default function CreateTimer () {
               onClick={() => setTimerLength(2)}
             />
           </div>
-          <div className='create-timer-label'>计时长度</div>
+          <div className='create-timer-label'>计时秒数</div>
           <div className='flex-row'>
-            <input type='number' onChange={onChangeLengthOne} className='mr24' placeholder='秒数' />
+            <input min={1} type='number' onChange={onChangeLengthOne} className='mr24' placeholder='秒数' />
             {
-              timerLength === 2 && <input type='number' onChange={onChangeLengthTwo} placeholder='秒数2' />
+              timerLength === 2 && <input min={1} type='number' onChange={onChangeLengthTwo} placeholder='秒数2' />
             }
           </div>
           <div className='create-timer-label'>显示类型</div>
@@ -135,7 +135,7 @@ export default function CreateTimer () {
           </div>
         </div>}
       {!formOpen &&
-        <Button type='secondary' full onClick={onAdd}>
+        <Button type='secondary' size='l' full onClick={onAdd}>
           + 添加第{config.length + 1}个流程</Button>}
       {config.length > 0 && !formOpen && <Button className='mt12' full onClick={onSaveTimer}>保存</Button>}
     </div>
