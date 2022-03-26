@@ -107,7 +107,7 @@ export async function getMyTimers () {
       ]
     },
     {
-      id: 3,
+      id: 2,
       title: '👀 新版眼保健操',
       config: [
         {
