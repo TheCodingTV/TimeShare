@@ -107,7 +107,41 @@ export async function getMyTimers () {
       ]
     },
     {
-      id: 2,
+      id: 3,
+      title: '👀 新版眼保健操',
+      config: [
+        {
+          title: '第一节 揉天应穴',
+          description: '以左右大拇指罗纹面接左右眉头下面的上眶角处。其他四指散开弯曲如弓状，支在前额上，按揉面不要大。',
+          timerConfig: [
+            { totalSeconds: 90 },
+          ]
+        },
+        {
+          title: '第二节 挤按睛明穴',
+          description: '以左手或右手大拇指按鼻根部，先向下按、然后向上挤。',
+          timerConfig: [
+            { totalSeconds: 90 },
+          ]
+        },
+        {
+          title: '第三节 揉四白穴',
+          description: '先以左右食指与中指并拢，放在靠近鼻翼两侧，大拇指支撑在下腭骨凹陷处，然后放下中指，在面颊中央按揉。注意穴位不需移动，按揉面不要太大。',
+          timerConfig: [
+            { totalSeconds: 90 },
+          ]
+        },
+        {
+          title: '第四节 按太阳穴轮刮眼眶',
+          description: '拳起四指，以左右大拇指罗纹面按住太阳穴，以左右食指第二节内侧面轮刮眼眶上下一圈，上侧从眉头开始，到眉梢为止，下面从内眼角起至外眼角止，先上后下，轮刮上下一圈。',
+          timerConfig: [
+            { totalSeconds: 90 },
+          ]
+        }
+      ]
+    },
+    {
+      id: 3,
       title: '🦾 徒手训练流程',
       config: [
         { 
