@@ -121,3 +121,24 @@ input:focus {
 .mt12 { margin-top: 12px; }
 .mr24 { margin-right: 24px; }
 .mt24 { margin-top: 24px; }
+
+.icon-button {
+  height: 32px;
+  width: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  cursor: pointer;
+}
+
+.icon-button:hover { background-color: var(--neutral100); }
+.icon-button-menu { 
+  height: 32px;
+  width: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  cursor: pointer;
+ }

@@ -53,7 +53,7 @@ export default function CreateTimer () {
     onCancel()
   }
 
-  const onSaveTimer = () => {
+  const onTimerSave = () => {
     console.log(JSON.stringify(config, null, 2))
 
     if (!timerTitle) { return alert('need timer title!') }
@@ -77,12 +77,16 @@ export default function CreateTimer () {
     onClearAll()
   }
 
+  const onSectionDelete = idx => {
+    setConfig(config.filter((_, index) => index !== idx))
+  }
+
   return (
     <div>
       <div className='create-timer-label-main'>计时器名称</div>
       <input type='text' onChange={onTimerTitleChange} value={timerTitle} className='input-main' placeholder='计时器名称' />
       {config.map((item, idx) => {
-        return <CardAddTimerSection {...item} key={idx}/>
+        return <CardAddTimerSection {...item} key={idx} onDelete={() => onSectionDelete(idx)} />
       })}
       {formOpen && 
         <div className='create-timer-form'>
@@ -137,7 +141,7 @@ export default function CreateTimer () {
       {!formOpen &&
         <Button type='secondary' size='l' full onClick={onAdd}>
           + 添加第{config.length + 1}个流程</Button>}
-      {config.length > 0 && !formOpen && <Button className='mt12' full onClick={onSaveTimer}>保存</Button>}
+      {config.length > 0 && !formOpen && <Button className='mt12' full onClick={onTimerSave}>保存</Button>}
     </div>
   )
 }

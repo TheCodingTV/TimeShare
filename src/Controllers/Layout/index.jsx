@@ -24,6 +24,17 @@ export default function Layout ({ children, onTimerClick, onCreateClick }) {
 
   }, [])
 
+  const deleteLocalTimer = (idx) => {
+    const storage = window.localStorage
+    const localTimers = storage.getItem('timer-share-local')
+    
+    let localTimersDeleted = JSON.parse(localTimers).filter(
+      (_, index) => index !== idx
+    )
+    storage.setItem('timer-share-local', JSON.stringify(localTimersDeleted))
+    setLocalTimers(localTimersDeleted)
+  }
+
   const sideBarConfig = [
     {
       title: '',
@@ -42,6 +53,8 @@ export default function Layout ({ children, onTimerClick, onCreateClick }) {
       items: localTimers.map((_, idx) => ({
         title: _.title,
         active: false,
+        canDelete: true,
+        onDelete: () => { deleteLocalTimer(idx) },
         onClick: () => { onTimerClick(_, idx) }
       }))
     },

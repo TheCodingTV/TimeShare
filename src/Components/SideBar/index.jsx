@@ -47,6 +47,8 @@ export default function SideBar ({ config = defaultConfig, secondary = false, ti
                   onClick={item.onClick}
                   text={item.title}
                   className={item.className}
+                  canDelete={item.canDelete}
+                  onDelete={item.onDelete}
                 />
               })}
             </div>
