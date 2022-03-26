@@ -55,12 +55,12 @@
   transform: translateY(-16px);
 }
 
-.create-new-button > .menu-button-text {
+.create-new-button .menu-button-text {
   display: flex;
   flex-direction: row;
   align-items: center;
 }
 
-.create-new-button > .menu-button-text > img {
+.create-new-button .menu-button-text > img {
   margin-right: 8px;
 }
