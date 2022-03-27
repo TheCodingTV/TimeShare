@@ -70,7 +70,7 @@ export default class TimerController extends React.Component {
   }
   
   render () {
-    const { type = 'primary', totalSeconds, Component = TimerRow } = this.props
+    const { sectionId, colorType = 1, totalSeconds, Component = TimerRow } = this.props
     const { seconds, isRunning } = this.state
     return (
       <Component
@@ -78,7 +78,8 @@ export default class TimerController extends React.Component {
         seconds={seconds}
         totalSeconds={totalSeconds}
         isRunning={isRunning}
-        type={type}
+        colorType={colorType}
+        id={sectionId}
       />
     )
   }

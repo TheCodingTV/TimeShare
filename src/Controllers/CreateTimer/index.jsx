@@ -4,6 +4,17 @@ import CardAddTimerSection from '../../Components/CardAddTimerSection'
 import CardSelect from '../../Components/CardSelect'
 import './style.css'
 
+const colorTypes = [
+  { title: '渐变1', type: 1 },
+  { title: '渐变2', type: 2 },
+  { title: '渐变3', type: 3 }
+]
+
+const componentTypes = [
+  { title: '条形', description: '条形条形条形条形',  component: 'row' },
+  { title: '卡片形', description: '卡片形卡片形卡片形', component: 'card' }
+]
+
 export default function CreateTimer () {
   const [config, setConfig] = useState([])
   const [formOpen, setFormOpen] = useState(false)
@@ -11,7 +22,9 @@ export default function CreateTimer () {
   const [sectionTitle, setSectionTitle] = useState('')
   const [sectionDescription, setSectionDescription] = useState('')
   const [timerLength, setTimerLength] = useState(1)
-  const [cardType, setCardType] = useState('row')
+  const [componentType, setComponentType] = useState(componentTypes[0].component)
+  const [colorType, setColorType] = useState(colorTypes[0].type)
+  const [colorType2, setColorType2] = useState(colorTypes[1].type)
 
   const [lengthOne, setLengthOne] = useState(0)
   const [lengthTwo, setLengthTwo] = useState(0)
@@ -19,7 +32,13 @@ export default function CreateTimer () {
   const onChangeLengthOne = e => { setLengthOne(parseInt(e.target.value)) }
   const onChangeLengthTwo = e => { setLengthTwo(parseInt(e.target.value)) }
   const onAdd = () => { setFormOpen(true) }
-  const onCancel = () => { setFormOpen(false) }
+  const onCancel = () => {
+    setFormOpen(false)
+    setTimerLength(1)
+    setComponentType(componentTypes[0].component)
+    setColorType(colorTypes[0].type)
+    setColorType2(colorTypes[1].type)
+  }
   const onTitleChange = e => { setSectionTitle(e.target.value) }
   const onDescriptionChange = e => { setSectionDescription(e.target.value) }
   const onTimerTitleChange = e => { setTimerTitle(e.target.value) }
@@ -39,13 +58,17 @@ export default function CreateTimer () {
     let data = {}
     data.title = sectionTitle
     data.description = sectionDescription
-    data.timerConfig = [
-      { totalSeconds: lengthOne }
-    ]
+    data.timerConfig = [{
+      totalSeconds: lengthOne,
+      componentType,
+      colorType
+    }]
 
     if (timerLength === 2) {
       data.timerConfig.push({
-        totalSeconds: lengthTwo
+        totalSeconds: lengthTwo,
+        componentType ,
+        colorType: colorType2
       })
     }
     
@@ -54,25 +77,14 @@ export default function CreateTimer () {
   }
 
   const onTimerSave = () => {
-    console.log(JSON.stringify(config, null, 2))
-
     if (!timerTitle) { return alert('need timer title!') }
 
     const storage = window.localStorage
     const userConfig = storage.getItem('timer-share-local')
 
-    const data = [{
-      title: timerTitle,
-      config
-    }]
-    if (!userConfig) {
-      storage.setItem('timer-share-local', JSON.stringify(data))
-    } else {
-      const currentConfig = JSON.parse(userConfig)
-      storage.setItem('timer-share-local', JSON.stringify(
-        currentConfig.concat(data)
-      ))
-    }
+    const data = [{ title: timerTitle, config }]
+    const nextData = userConfig ? JSON.parse(userConfig).concat(data) : data
+    storage.setItem('timer-share-local', JSON.stringify(nextData))
 
     onClearAll()
   }
@@ -113,26 +125,58 @@ export default function CreateTimer () {
           <div className='create-timer-label'>计时秒数</div>
           <div className='flex-row'>
             <input min={1} type='number' onChange={onChangeLengthOne} className='mr24' placeholder='秒数' />
-            {
-              timerLength === 2 && <input min={1} type='number' onChange={onChangeLengthTwo} placeholder='秒数2' />
-            }
+            {timerLength === 2 && <input min={1} type='number' onChange={onChangeLengthTwo} placeholder='秒数2' />}
           </div>
-          <div className='create-timer-label'>显示类型</div>
+          <div className='create-timer-label'>组件类型</div>
           <div className='flex-row'>
-            <CardSelect
-              className='mr24'
-              title='条形'
-              description='长条状不断缩短的倒计时'
-              selected={cardType === 'row'}
-              onClick={() => setCardType('row')}
-            />
-            <CardSelect
-              title='卡片形'
-              description='卡片形卡片形卡片形卡片形'
-              selected={cardType === 'card'}
-              onClick={() => setCardType('card')}
-            />
+            {componentTypes.map(item => {
+              return (
+                <CardSelect
+                  key={item.title}
+                  className='mr24'
+                  title={item.title}
+                  description={item.description}
+                  selected={componentType === item.component}
+                  onClick={() => setComponentType(item.component)}
+                />
+              )
+            })}
           </div>
+          <div className='create-timer-label'>颜色类型</div>
+          <div className='flex-row'>
+            {colorTypes.map(item => {
+              return (
+                <CardSelect
+                  key={item.title}
+                  className='mr24'
+                  title={item.title}
+                  Component={<div className={`timer-color-demo timer-color-${item.type}`} />}
+                  selected={colorType === item.type}
+                  onClick={() => setColorType(item.type)}
+                />
+              )
+            })}
+          </div>
+          {
+            timerLength === 2 &&
+              <>
+                <div className='create-timer-label'>颜色类型 - 2</div>
+                <div className='flex-row'>
+                  {colorTypes.map(item => {
+                    return (
+                      <CardSelect
+                        key={item.title}
+                        className='mr24'
+                        title={item.title}
+                        Component={<div className={`timer-color-demo timer-color-${item.type}`} />}
+                        selected={colorType2 === item.type}
+                        onClick={() => setColorType2(item.type)}
+                      />
+                    )
+                  })}
+                </div>
+              </>
+          }
           <div className='flex-row mt24'>
             <Button onClick={onSectionSave} style={{ marginRight: 12 }}>确认</Button>
             <Button type='secondary' onClick={onCancel}>取消</Button>

@@ -1,4 +1,4 @@
-import Delete from '../CardAddTimerSection/delete.svg'
+import Delete from '../../Assets/delete.svg'
 import './style.css'
 
 export default function ButtonMenu ({

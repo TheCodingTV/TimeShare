@@ -8,6 +8,7 @@
   margin-bottom: 40px;
   cursor: pointer;
   transition: box-shadow 0.3s ease;
+  background: linear-gradient(130deg, rgba(131,58,180,1) 0%, rgba(233,98,98,1) 50%, rgba(252,176,69,1) 100%);
 }
 
 .timer-row:hover {
@@ -16,7 +17,7 @@
 
 .timer-row-coverer {
   height: 100%;
-  background-color: white;
+  background-color: var(--neutral900);
   float: right;
 }
 
@@ -34,25 +35,13 @@
   height: 100%;
   font-size: 28px;
   margin-left: 40px;
-  font-family: 'Overpass Mono', monospace;
+  color: white;
 }
 
 .timer-row-text-focus {
   margin-left: 38px;
 }
 
-.timer-row-primary-focus {
-  border: 2px solid var(--primary600);
-}
-
-.timer-row-secondary-focus {
-  border: 2px solid var(--secondary600);
-}
-
-.timer-row-primary {
-  background: linear-gradient(91.34deg, var(--primary200) 14.58%, var(--primary100) 84.19%);
-}
-
-.timer-row-secondary {
-  background: linear-gradient(91.34deg, var(--secondary200) 14.58%, var(--secondary100) 84.19%);
+.timer-row-focus {
+  border: 2px solid var(--neutral900);
 }

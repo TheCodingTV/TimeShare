@@ -1,12 +1,13 @@
 .create-timer-form {
-  padding: 24px;
+  padding: 8px 24px 24px 24px;
   border-radius: 4px;
   background-color: var(--neutral0);
 }
 
 .create-timer-label {
-  font-size: 14px;
-  margin: 12px 0;
+  font-size: 12px;
+  margin: 16px 0 8px;
+  font-weight: 500;
 }
 
 .create-timer-label-main {

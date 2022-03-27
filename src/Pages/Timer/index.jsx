@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import SideBar from '../../Components/SideBar'
 import Timer from '../../Controllers/Timer'
+import './style.css'
 
 export default function TimerPage ({ timerConfig, timerId }) {
   const { config, title } = timerConfig
@@ -22,7 +23,7 @@ export default function TimerPage ({ timerConfig, timerId }) {
 
   const sideBarConfig = [
     {
-      title: '当前计时器',
+      title: '计时步骤',
       items: config
         ? config.map((_, idx) => ({
           title: _.title,
@@ -43,7 +44,7 @@ export default function TimerPage ({ timerConfig, timerId }) {
     <div className="app">
       <SideBar config={sideBarConfig} secondary title={title} />
       <div className='content'>
-        <h1>{currentTimerSection.title}</h1>
+        <div className='timer-header'>{currentTimerSection.title}</div>
         <div className='subtitle'>{currentTimerSection.description}</div>
         <Timer
           config={currentTimerSection.timerConfig}

@@ -73,13 +73,6 @@ div {
   overflow: auto;
 }
 
-h1 {
-  font-style: normal;
-  font-weight: 700;
-  font-size: 32px;
-  line-height: 40px;
-}
-
 input {
   border: none;
   border-radius: 4px;
@@ -108,15 +101,9 @@ input:focus {
   margin-bottom: 40px;
 }
 
-.flex-row {
-  display: flex;
-  flex-direction: row;
-}
-
-.pointer {
-  cursor: pointer;
-}
-
+.flex1 { flex: 1; }
+.flex-row { display: flex; flex-direction: row; }
+.pointer { cursor: pointer; }
 .mt8 { margin-top: 8px; }
 .mt12 { margin-top: 12px; }
 .mr24 { margin-right: 24px; }
@@ -132,7 +119,10 @@ input:focus {
   cursor: pointer;
 }
 
-.icon-button:hover { background-color: var(--neutral100); }
+.icon-button:hover {
+  background-color: var(--neutral100);
+}
+
 .icon-button-menu { 
   height: 32px;
   width: 32px;
@@ -142,3 +132,21 @@ input:focus {
   border-radius: 16px;
   cursor: pointer;
  }
+
+.timer-color-demo {
+  height: 32px;
+  width: 150px;
+  border-radius: 4px;
+}
+
+.timer-color-1 {
+  background: linear-gradient(130deg, rgba(131,58,180,1) 0%, rgba(233,98,98,1) 50%, rgba(252,176,69,1) 100%);
+}
+
+.timer-color-2 {
+  background: linear-gradient(129deg, rgba(58,51,172,1) 0%, rgba(61,61,236,1) 35%, rgba(7,177,212,1) 100%);
+}
+
+.timer-color-3 {
+  background: linear-gradient(111deg, rgba(99,240,73,1) 0%, rgba(37,217,173,1) 35%, rgba(5,190,228,1) 100%);
+}

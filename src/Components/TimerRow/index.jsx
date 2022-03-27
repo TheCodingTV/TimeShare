@@ -5,7 +5,7 @@ export default function TimerRow ({
   isRunning,
   seconds = 0,
   totalSeconds = 1,
-  type = 'primary'
+  colorType = 1,
 }) {
   let percentage = 1 - seconds / totalSeconds
   if (percentage > 1) percentage = 1
@@ -18,8 +18,8 @@ export default function TimerRow ({
     <div
       className={`
         timer-row
-        timer-row-${type}
-        ${isRunning ? `timer-row-${type}-focus` : ''}
+        timer-color-${colorType}
+        ${isRunning ? 'timer-row-focus' : ''}
       `}
       onClick={onRunClick}
     >

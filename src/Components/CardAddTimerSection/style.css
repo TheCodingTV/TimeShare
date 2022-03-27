@@ -33,7 +33,6 @@
 
 .card-add-section-title {
   font-size: 14px;
-  font-weight: bold;
 }
 
 .card-add-section-description {
@@ -58,6 +57,6 @@
   margin-right: 12px;
 }
 
-.flex1 {
-  flex: 1;
+.card-add-section-header-title {
+  line-height: 24px;
 }

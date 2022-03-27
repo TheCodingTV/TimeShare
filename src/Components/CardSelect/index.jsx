@@ -4,6 +4,7 @@ export default function CardSelect ({
   selected,
   title,
   description,
+  Component,
   onClick = () => {},
   className
 }) {
@@ -21,6 +22,7 @@ export default function CardSelect ({
       <div className='card-select-content'>
         <div className='card-select-title'>{title}</div>
         {description && <div className='card-select-description'>{description}</div>}
+        {Component ? Component : null}
       </div>
     </div>
   )

@@ -22,8 +22,7 @@ export default function Timer ({ config, onMoveNext, sectionId, hasNextStep }) {
     if (runningId && (id !== runningId)) {
       pauseTimer(runningId)
     }
-    console.log(' --- on run --- ')
-    console.log(id)
+
     setRunningId(id)
     setEnded(ended.filter(i => i !== id))
   }
@@ -64,13 +63,13 @@ export default function Timer ({ config, onMoveNext, sectionId, hasNextStep }) {
     <div className='timer-wrapper'>
       {config.map(item => {
         let Component = TimerRow
-        if (item.component === 'card') Component = TimerCard
+        if (item.componentType === 'card') Component = TimerCard
         return (
           <TimerController
             Component={Component}
             key={item.id}
             totalSeconds={item.totalSeconds}
-            type={item.type}
+            colorType={item.colorType}
             onRun={() => onRun(item.id)}
             onPause={() => onPause(item.id)}
             onEnd={() => onEnd(item.id)}

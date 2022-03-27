@@ -1,29 +1,29 @@
 .timer-card {
-  box-shadow: 0px 4px 16px rgba(0, 0, 0, 0.25);
+  background: linear-gradient(130deg, rgba(131,58,180,1) 0%, rgba(233,98,98,1) 50%, rgba(252,176,69,1) 100%);
+  box-shadow: 0px 0px 4px rgba(33, 33, 52, 0.1);
+  border-radius: 16px;
   overflow: hidden;
-  max-width: 400px;
-  color: #fff;
-  padding: 32px;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
   margin-bottom: 40px;
 }
 
-.timer-card-primary {
-  background-color: var(--primary200);
-  color: var(--primary500);
-}
-.timer-card-secondary {
-  background-color: var(--secondary200);
-  color: var(--secondary500);
+.timer-card-control {
+  width: 140px;
+  height: 140px;
+  border-radius: 70px;
+  background-color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
 }
 
 .timer-text {
-  font-weight: bold;
-  font-size: 30px;
-  font-family: monospace;
-  margin-bottom: 20px;
+  font-size: 28px;
+  margin-bottom: 10px;
   z-index: 1;
   color: var(--neutral0);
 }
@@ -34,20 +34,18 @@
 }
 
 .timer-button > img {
-  height: 32px;
-  width: 32px;
+  height: 24px;
+  width: 24px;
   cursor: pointer;
 }
 
-.timer-svg-container {
+.timer-canvas-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-
   position: absolute;
   left: 0;
-  top: calc(-200px + 50%);
+  top: 0;
   z-index: 0;
-  transform: scale(2);
 }
