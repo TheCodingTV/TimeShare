@@ -103,19 +103,20 @@ export default function CreateTimer () {
       {formOpen && 
         <div className='create-timer-form'>
           <div className='create-timer-label'>步骤名称</div>
-          <input type='text' onChange={onTitleChange} placeholder='给步骤起个名字' />
+          <input type='text' onChange={onTitleChange} placeholder='给步骤起个名字' className='mb12' />
           <div className='create-timer-label'>步骤描述</div>
-          <input type='text' onChange={onDescriptionChange} placeholder='给步骤加个解释'  />
+          <input type='text' onChange={onDescriptionChange} placeholder='给步骤加个解释' className='mb12' />
           <div className='create-timer-label'>计时类型</div>
           <div className='flex-row'>
             <CardSelect
-              className='mr24'
+              className='mr24 mb12'
               title='单倒计时'
               description='固定时长的倒计时'
               selected={timerLength === 1}
               onClick={() => setTimerLength(1)}
             />
             <CardSelect
+              className={'mb12'}
               title='双倒计时'
               description='一方停止另一方开始计时'
               selected={timerLength === 2}
@@ -124,8 +125,8 @@ export default function CreateTimer () {
           </div>
           <div className='create-timer-label'>计时秒数</div>
           <div className='flex-row'>
-            <input min={1} type='number' onChange={onChangeLengthOne} className='mr24' placeholder='秒数' />
-            {timerLength === 2 && <input min={1} type='number' onChange={onChangeLengthTwo} placeholder='秒数2' />}
+            <input min={1} type='number' onChange={onChangeLengthOne} className='mr24 mb12' placeholder='秒数' />
+            {timerLength === 2 && <input min={1} type='number' onChange={onChangeLengthTwo} placeholder='秒数2' className='mb12' />}
           </div>
           <div className='create-timer-label'>组件类型</div>
           <div className='flex-row'>
@@ -133,7 +134,7 @@ export default function CreateTimer () {
               return (
                 <CardSelect
                   key={item.title}
-                  className='mr24'
+                  className='mr24 mb12'
                   title={item.title}
                   description={item.description}
                   selected={componentType === item.component}
@@ -148,7 +149,7 @@ export default function CreateTimer () {
               return (
                 <CardSelect
                   key={item.title}
-                  className='mr24'
+                  className='mr24 mb12'
                   title={item.title}
                   Component={<div className={`timer-color-demo timer-color-${item.type}`} />}
                   selected={colorType === item.type}
@@ -166,7 +167,7 @@ export default function CreateTimer () {
                     return (
                       <CardSelect
                         key={item.title}
-                        className='mr24'
+                        className='mr24 mb12'
                         title={item.title}
                         Component={<div className={`timer-color-demo timer-color-${item.type}`} />}
                         selected={colorType2 === item.type}
