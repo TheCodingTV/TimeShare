@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Overpass+Mono:wght@600&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Overpass+Mono:wght@600&display=swap'); */
 
 .timer-row {
   height: 124px;
@@ -17,7 +17,7 @@
 
 .timer-row-coverer {
   height: 100%;
-  background-color: var(--neutral900);
+  background-color: rgba(33, 33, 52, 1);
   float: right;
 }
 

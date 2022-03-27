@@ -1,7 +1,8 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import App from './App'
-import './index.css'
+import App from './web-app'
+
+window.global = { type: 'Vite' } 
 
 ReactDOM.render(
   <React.StrictMode>

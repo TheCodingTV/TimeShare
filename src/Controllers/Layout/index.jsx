@@ -16,6 +16,10 @@ export default function Layout ({ children, onTimerClick, onCreateClick }) {
     
     getPublicTimers()
 
+    if (global.type === 'Taro') {
+      return
+    }
+
     const storage = window.localStorage
     const localTimers = storage.getItem('timer-share-local')
     if (localTimers) {
@@ -40,7 +44,7 @@ export default function Layout ({ children, onTimerClick, onCreateClick }) {
       title: '',
       items: [{
         title: <>
-          <img src={New} alt='new-icon' />
+          <img src={New} alt='new-icon' className='icon' />
           <span>创建我的计时器</span>
         </>,
         active: false,

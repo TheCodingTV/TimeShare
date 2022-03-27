@@ -64,3 +64,13 @@
 .create-new-button .menu-button-text > img {
   margin-right: 8px;
 }
+
+.side-bar-logo {
+  height: 32px;
+}
+
+@media screen and (max-width: 500px) {
+  .side-bar-logo {
+    width: 100%;
+  }
+}

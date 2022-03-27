@@ -102,6 +102,8 @@ input:focus {
   margin-bottom: 40px;
 }
 
+.icon { width: 16px; height: 16px; }
+.w100 { width: 100%; }
 .flex1 { flex: 1; }
 .flex-row { display: flex; flex-direction: row; flex-wrap: wrap; }
 .pointer { cursor: pointer; }

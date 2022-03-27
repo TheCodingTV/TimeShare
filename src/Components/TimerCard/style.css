@@ -11,21 +11,22 @@
 }
 
 .timer-card-control {
-  width: 140px;
-  height: 140px;
-  border-radius: 70px;
+  width: 128px;
+  height: 128px;
+  border-radius: 64px;
   background-color: black;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  cursor: pointer;
 }
 
 .timer-text {
-  font-size: 28px;
-  margin-bottom: 10px;
+  font-size: 26px;
+  margin-bottom: 12px;
   z-index: 1;
-  color: var(--neutral0);
+  color: white;
 }
 
 .timer-button {
@@ -34,8 +35,8 @@
 }
 
 .timer-button > img {
-  height: 24px;
-  width: 24px;
+  height: 20px;
+  width: 20px;
   cursor: pointer;
 }
 
@@ -48,4 +49,10 @@
   left: 0;
   top: 0;
   z-index: 0;
+}
+
+.timer-canvas-container > canvas {
+  position: absolute;
+  top: 0;
+  left: 0;
 }

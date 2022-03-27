@@ -5,11 +5,20 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build:mini": "taro build --type weapp",
+    "mini": "npm run build:mini -- --watch",
     "preview": "vite preview",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
   "dependencies": {
+    "@babel/runtime": "^7.7.7",
+    "@tarojs/components": "3.4.3",
+    "@tarojs/runtime": "3.4.3",
+    "@tarojs/taro": "3.4.3",
+    "@tarojs/plugin-framework-react": "3.4.3",
+    "@tarojs/plugin-html": "3.4.3",
+    "@tarojs/react": "3.4.3",
     "react": "17.0.2",
     "react-dom": "17.0.2"
   },
@@ -21,8 +30,11 @@
     "@storybook/addon-links": "6.4.19",
     "@storybook/react": "6.4.19",
     "@storybook/testing-library": "0.0.9",
+    "@tarojs/mini-runner": "3.4.3",
+    "@tarojs/webpack-runner": "3.4.3",
     "@vitejs/plugin-react": "1.2.0",
     "babel-loader": "8.2.3",
+    "babel-preset-taro": "3.4.3",
     "vite": "2.8.6"
   }
 }

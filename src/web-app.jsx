@@ -2,6 +2,7 @@ import { useState } from 'react'
 import Layout from './Controllers/Layout'
 import Timer from './Pages/Timer'
 import CreateTimer from './Pages/CreateTimer'
+import './Style/index.css'
 
 export default function App () {
   const [route, setRoute] = useState('create-timer')

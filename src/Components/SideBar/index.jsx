@@ -2,25 +2,7 @@ import ButtonMenu from '../ButtonMenu'
 import Logo from '../../Assets/timeshare-full.svg'
 import './style.css'
 
-const defaultConfig = [
-  {
-    title: '我的收藏',
-    items: [
-      { title: '辩论1', active: true, onClick: () => {} },
-      { title: '辩论2', active: false, onClick: () => {} }
-    ]
-  },
-  {
-    title: '当前计时',
-    items: [
-      { title: '一辩陈词 - 正方', active: true, onClick: () => {} },
-      { title: '一辩陈词 - 反方', active: false, onClick: () => {} },
-      { title: '对辩', active: false, onClick: () => {} },
-    ]
-  }
-]
-
-export default function SideBar ({ config = defaultConfig, secondary = false, title }) {
+export default function SideBar ({ config = [], secondary = false, title }) {
   return (
     <div className={`
       side-bar
