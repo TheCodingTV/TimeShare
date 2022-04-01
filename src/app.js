@@ -1,5 +1,7 @@
+import Taro from '@tarojs/taro'
 import './Style/index.css'
-global.type = 'Taro'
+
+wx.Taro = Taro
 
 export default function TaroApp ({ children }) {
   return children

@@ -4,13 +4,19 @@
   flex-direction: row;
   align-items: center;
   border-radius: 4px;
-  border: 1px solid var(--neutral200);
-  color: var(--neutral300);
+  border: 1px solid rgba(220, 220, 228, 1);
+  color: rgba(192, 192, 207, 1);
   padding: 24px;
   cursor: pointer;
-  background-color: var(--neutral0);
+  background-color: rgba(255, 255, 255, 1);
   min-width: 260px;
   transition: all 0.15s ease;
+}
+
+@media screen and (max-width: 500px) {
+  .card-select {
+    width: 100%;
+  }
 }
 
 .card-select div {
@@ -18,9 +24,9 @@
 }
 
 .card-select-active {
-  border: 1px solid var(--primary200);
-  background-color: var(--primary100);
-  color: var(--primary600);
+  border: 1px solid rgba(217, 216, 255, 1);
+  background-color: rgba(240, 240, 255, 1);
+  color: rgba(73, 69, 255, 1);
 }
 
 .card-select-content {
@@ -37,7 +43,7 @@
 }
 
 .card-select-active .card-select-title {
-  color: var(--primary600);
+  color: rgba(73, 69, 255, 1);
 }
 
 .card-select-description {
@@ -46,26 +52,26 @@
 }
 
 .card-select-active .card-select-description {
-  color: var(--primary600);
+  color: rgba(73, 69, 255, 1);
 }
 
 .card-select-ratio-circle {
   height: 20px;
   width: 20px;
   border-radius: 10px;
-  border: 1px solid var(--neutral300);
+  border: 1px solid rgba(192, 192, 207, 1);
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .card-select-active .card-select-ratio-circle {
-  border: 1px solid var(--primary600); 
+  border: 1px solid rgba(73, 69, 255, 1); 
 }
 
 .card-select-ratio-circle-inner {
   height: 12px;
   width: 12px;
   border-radius: 6px;
-  background-color: var(--primary600);
+  background-color: rgba(73, 69, 255, 1);
 }

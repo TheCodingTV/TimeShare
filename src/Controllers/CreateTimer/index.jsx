@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import Storage from '@Storage'
 import Button from '../../Components/Button'
 import CardAddTimerSection from '../../Components/CardAddTimerSection'
 import CardSelect from '../../Components/CardSelect'
@@ -47,7 +48,10 @@ export default function CreateTimer () {
     setTimerTitle('')
     setConfig([])
     onCancel()
-    window.location.reload()
+
+    if (window && window.COMPILE_TYPE === 'Vite') {
+      window.location.reload()
+    }
   }
 
   const onSectionSave = () => {
@@ -78,14 +82,10 @@ export default function CreateTimer () {
 
   const onTimerSave = () => {
     if (!timerTitle) { return alert('need timer title!') }
-
-    const storage = window.localStorage
-    const userConfig = storage.getItem('timer-share-local')
-
+    const userConfig = Storage.getItem('timer-share-local')
     const data = [{ title: timerTitle, config }]
     const nextData = userConfig ? JSON.parse(userConfig).concat(data) : data
-    storage.setItem('timer-share-local', JSON.stringify(nextData))
-
+    Storage.setItem('timer-share-local', JSON.stringify(nextData))
     onClearAll()
   }
 

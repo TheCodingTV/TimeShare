@@ -19,8 +19,8 @@
 }
 
 .button-primary {
-  background-color: var(--primary600);
-  color: var(--neutral0);
+  background-color: rgba(73, 69, 255, 1);
+  color: rgba(255, 255, 255, 1);
 }
 
 .button-primary:hover {
@@ -28,13 +28,13 @@
 }
 
 .button-secondary {
-  background-color: var(--primary100);
-  color: var(--primary600);
-  border: 1px solid var(--primary200);
+  background-color: rgba(240, 240, 255, 1);
+  color: rgba(73, 69, 255, 1);
+  border: 1px solid rgba(217, 216, 255, 1);
 }
 
 .button-secondary:hover {
-  background-color: var(--neutral0);
+  background-color: rgba(255, 255, 255, 1);
 }
 
 .button-size-s { height: 32px; }

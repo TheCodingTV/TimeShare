@@ -22,7 +22,7 @@
 }
 
 .round-button {
-  background-color: var(--primary600);
+  background-color: rgba(73, 69, 255, 1);
   width: 40px;
   height: 40px;
   border-radius: 20px;

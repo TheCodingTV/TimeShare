@@ -1,7 +1,9 @@
 const path = require('path')
 
 const config = {
-  alias: {},
+  alias: {
+    '@Storage': path.resolve(__dirname, '..', 'src/Utils/Storage/index.taro.js'),
+  },
   projectName: 'TimeShare',
   date: '2022-03-26',
   designWidth: 750,

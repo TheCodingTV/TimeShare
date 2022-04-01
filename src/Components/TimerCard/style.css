@@ -11,9 +11,9 @@
 }
 
 .timer-card-control {
-  width: 128px;
-  height: 128px;
-  border-radius: 64px;
+  width: 150px;
+  height: 150px;
+  border-radius: 75px;
   background-color: black;
   display: flex;
   align-items: center;

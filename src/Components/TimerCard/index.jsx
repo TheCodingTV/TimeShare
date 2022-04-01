@@ -3,8 +3,8 @@ import PlaySVG from '../../Assets/play.svg'
 import PauseSVG from '../../Assets/pause.svg'
 import './style.css'
 
-const height = 300
-const width = 480
+let height = 300
+let width = 480
 
 export default function TimerCard ({
   onRunClick,
@@ -19,7 +19,43 @@ export default function TimerCard ({
   const min = parseInt(seconds / 60)
   const sec = seconds % 60
 
-  const draw = canvas => {
+  useEffect(() => {
+    if (window && window.COMPILE_TYPE !== 'Vite') {
+      const info = wx.getSystemInfoSync()
+      height = info.screenHeight
+      width = info.screenWidth
+    }
+  }, [])
+
+  const drawTaro = () => {
+    const query = wx.createSelectorQuery()
+    query.select(`#canvas_${id}`)
+      .fields({ node: true, size: true })
+      .exec((res) => {
+        if (!res[0]) return
+
+        const canvas = res[0].node
+        const ctx = canvas.getContext('2d')
+        ctx.clearRect(0, 0, width, height)
+        const scale = wx.getSystemInfoSync().pixelRatio
+        canvas.width = res[0].width * scale
+        canvas.height = res[0].height * scale
+        ctx.scale(scale, scale)
+        ctx.fillStyle = 'rgba(33, 33, 52, 1)'
+        ctx.moveTo(width / 2, height / 2)  // center
+
+        // start angle: -0.5 * pi
+        // end angle: -0.5 - 1.5
+        const step = parseFloat((totalSeconds - seconds) / totalSeconds, 2)
+        const endAngle = (step * 2 - 0.5) * Math.PI
+        ctx.arc(width / 2, height / 2, Math.max(width, height), -0.5 * Math.PI, endAngle)
+        ctx.lineTo(width / 2, height / 2)
+        ctx.fill()
+      })
+  }
+
+  const drawWeb = () => {
+    const canvas = canvasRef.current
     const ctx = canvas.getContext('2d')
     ctx.clearRect(0, 0, canvas.width, canvas.height)
 
@@ -29,9 +65,7 @@ export default function TimerCard ({
     const scale = window.devicePixelRatio
     canvas.width = Math.floor(width * scale)
     canvas.height = Math.floor(height * scale)
-
     ctx.scale(scale, scale);
-
     ctx.fillStyle = 'rgba(33, 33, 52, 1)'
     ctx.moveTo(width / 2, height / 2)  // center
 
@@ -45,14 +79,11 @@ export default function TimerCard ({
   }
 
   useEffect(() => {
-    if (global.type === 'Taro') {
-      return
+    if (window && window.COMPILE_TYPE === 'Vite') {
+      drawWeb()
+    } else {
+      drawTaro()
     }
-
-    const canvas = canvasRef.current
-    if (seconds !== totalSeconds) {
-      draw(canvas)
-    } 
   }, [seconds, totalSeconds])
 
   return (
@@ -63,7 +94,7 @@ export default function TimerCard ({
       <div className='timer-canvas-container' style={{ width, height }}>
         <canvas
           type='2d'
-          id={id}
+          id={`canvas_${id}`}
           width={width + 'px'}
           height={height + 'px'}
           ref={canvasRef}

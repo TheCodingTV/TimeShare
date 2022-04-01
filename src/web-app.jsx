@@ -4,6 +4,8 @@ import Timer from './Pages/Timer'
 import CreateTimer from './Pages/CreateTimer'
 import './Style/index.css'
 
+window.COMPILE_TYPE = 'Vite'
+
 export default function App () {
   const [route, setRoute] = useState('create-timer')
   const [timerConfig, setTimerConfig] = useState()

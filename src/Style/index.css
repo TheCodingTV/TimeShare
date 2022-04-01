@@ -83,7 +83,7 @@ input {
   font-weight: 400;
   font-size: 12px;
   height: 38px;
-  border: 1px solid var(--neutral200);
+  border: 1px solid rgba(220, 220, 228, 1);
   box-sizing: border-box;
   min-width: 300px;
   outline: none;
@@ -92,7 +92,7 @@ input {
 
 input:focus {
   outline: none;
-  border: 1px solid var(--primary600);
+  border: 1px solid rgba(73, 69, 255, 1);
 }
 
 .subtitle {
@@ -112,7 +112,11 @@ input:focus {
 .mb12 { margin-bottom: 12px; }
 .mr24 { margin-right: 24px; }
 .mt24 { margin-top: 24px; }
-
+@media screen and (max-width: 500px) {
+  .mr24 {
+    margin-right: 0;
+  }
+}
 .icon-button {
   height: 32px;
   width: 32px;

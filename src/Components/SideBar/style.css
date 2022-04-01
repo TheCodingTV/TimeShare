@@ -1,5 +1,5 @@
 .side-bar {
-  background-color: var(--neutral0);
+  background-color: rgba(255, 255, 255, 1);
   min-width: 235px;
   height: 100vh;
   overflow: auto;
@@ -11,7 +11,7 @@
 
 .side-bar-secondary {
   background-color: var(--neutral100);
-  border-right: 1px solid var(--neutral200)
+  border-right: 1px solid rgba(220, 220, 228, 1)
 }
 
 @media screen and (max-width: 500px) {
@@ -48,7 +48,7 @@
   width: 1.5rem;
   height: 1px;
   margin-top: 26px;
-  background-color: var(--neutral200);
+  background-color: rgba(220, 220, 228, 1);
 }
 
 .create-new-button {

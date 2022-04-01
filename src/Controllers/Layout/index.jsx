@@ -15,11 +15,6 @@ export default function Layout ({ children, onTimerClick, onCreateClick }) {
   useEffect(() => {
     
     getPublicTimers()
-
-    if (global.type === 'Taro') {
-      return
-    }
-
     const storage = window.localStorage
     const localTimers = storage.getItem('timer-share-local')
     if (localTimers) {

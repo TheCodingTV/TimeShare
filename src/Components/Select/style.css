@@ -8,7 +8,7 @@
 }
 
 .select:hover {
-  background-color: var(--primary100);
+  background-color: rgba(240, 240, 255, 1);
 }
 
 .select-svg {

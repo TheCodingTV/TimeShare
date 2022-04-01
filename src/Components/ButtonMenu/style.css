@@ -19,13 +19,13 @@
 }
 
 .menu-button-active {
-  color: var(--primary600);
-  background-color: var(--primary100);
+  color: rgba(73, 69, 255, 1);
+  background-color: rgba(240, 240, 255, 1);
 }
 
 .menu-button-active:hover {
-  color: var(--primary600);
-  background-color: var(--primary100);
+  color: rgba(73, 69, 255, 1);
+  background-color: rgba(240, 240, 255, 1);
 }
 
 .menu-button-text {
