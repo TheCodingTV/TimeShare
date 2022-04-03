@@ -17,7 +17,7 @@ const request = async ({
     headers.Authorization = `Bearer ${jwt}`
   }
 
-  const response = await fetch('http://localhost:1337' + url,{
+  const response = await fetch('https://timerstack-1780628-1310797887.ap-shanghai.run.tcloudbase.com' + url,{
     method,
     headers,
     body: JSON.stringify(payload)
