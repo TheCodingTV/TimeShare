@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import Storage from '@Storage'
 import SideBar from '../../Components/SideBar'
 import * as Api from '../../Api'
 import New from './new.svg'
@@ -6,6 +8,10 @@ import New from './new.svg'
 export default function Layout ({ children, onTimerClick, onCreateClick }) {
   const [publicTimers, setPublicTimers] = useState([])
   const [localTimers, setLocalTimers] = useState([])
+
+  const user = useSelector(state => state.auth.user)
+  const myTimers = useSelector(state => state.timer.myTimers)
+  const dispatch = useDispatch()
 
   const getPublicTimers = async () => {
     const data = await Api.getMyTimers()
@@ -15,8 +21,7 @@ export default function Layout ({ children, onTimerClick, onCreateClick }) {
   useEffect(() => {
     
     getPublicTimers()
-    const storage = window.localStorage
-    const localTimers = storage.getItem('timer-share-local')
+    const localTimers = Storage.getItem('timer-share-local')
     if (localTimers) {
       setLocalTimers(JSON.parse(localTimers))
     }
@@ -24,14 +29,20 @@ export default function Layout ({ children, onTimerClick, onCreateClick }) {
   }, [])
 
   const deleteLocalTimer = (idx) => {
-    const storage = window.localStorage
-    const localTimers = storage.getItem('timer-share-local')
-    
+    const localTimers = Storage.getItem('timer-share-local')
     let localTimersDeleted = JSON.parse(localTimers).filter(
       (_, index) => index !== idx
     )
-    storage.setItem('timer-share-local', JSON.stringify(localTimersDeleted))
+    Storage.setItem('timer-share-local', JSON.stringify(localTimersDeleted))
     setLocalTimers(localTimersDeleted)
+  }
+
+  const onDeleteMyTimer = t => {
+    dispatch({ type: 'DELETE_MY_TIMER', id: t.id })
+  }
+
+  function onLogin () {
+    dispatch({ type: 'AUTH_LOGIN' })
   }
 
   const sideBarConfig = [
@@ -46,6 +57,16 @@ export default function Layout ({ children, onTimerClick, onCreateClick }) {
         onClick: onCreateClick,
         className: 'create-new-button'
       }]
+    },
+    {
+      title: '我的计时器',
+      items: myTimers.map((_, idx) => ({
+        title: _.title,
+        active: false,
+        canDelete: true,
+        onDelete: () => { onDeleteMyTimer(_) },
+        onClick: () => { onTimerClick(_) }
+      }))
     },
     {
       title: '本地计时器',
@@ -69,7 +90,12 @@ export default function Layout ({ children, onTimerClick, onCreateClick }) {
 
   return (
     <div className="app">
-      <SideBar config={sideBarConfig} />
+      <SideBar
+        config={sideBarConfig}
+        user={user}
+        onLogin={onLogin}
+        // Footer={user.id ? <AuthFooter username={user.username} avatar={user.avatar} /> : null}
+      />
       {children}
     </div>
   )

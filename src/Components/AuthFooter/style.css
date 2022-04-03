@@ -1,0 +1,18 @@
+
+.auth-footer {
+  border-top: 1px solid rgb(234, 234, 239);
+  padding: 20px 20px 8px 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-size: 12px;
+  justify-content: center;
+}
+
+.auth-avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: 15px;
+  margin-right: 8px;
+}
+

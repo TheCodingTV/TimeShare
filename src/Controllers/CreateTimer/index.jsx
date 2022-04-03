@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
 import Storage from '@Storage'
 import Button from '../../Components/Button'
 import CardAddTimerSection from '../../Components/CardAddTimerSection'
@@ -29,6 +30,10 @@ export default function CreateTimer () {
 
   const [lengthOne, setLengthOne] = useState(0)
   const [lengthTwo, setLengthTwo] = useState(0)
+
+  const dispatch = useDispatch()
+  const jwt = useSelector(state => state.auth.jwt)
+  const hasLogin = !!jwt
 
   const onChangeLengthOne = e => { setLengthOne(parseInt(e.target.value)) }
   const onChangeLengthTwo = e => { setLengthTwo(parseInt(e.target.value)) }
@@ -87,6 +92,18 @@ export default function CreateTimer () {
     const nextData = userConfig ? JSON.parse(userConfig).concat(data) : data
     Storage.setItem('timer-share-local', JSON.stringify(nextData))
     onClearAll()
+  }
+
+  const onTimerSaveCloud = () => {
+    if (!timerTitle) { return alert('need timer title!') }
+    dispatch({
+      type: 'ADD_TIMER',
+      title: timerTitle,
+      config
+    })
+    setTimerTitle('')
+    setConfig([])
+    onCancel()
   }
 
   const onSectionDelete = idx => {
@@ -186,7 +203,10 @@ export default function CreateTimer () {
       {!formOpen &&
         <Button type='secondary' size='l' full onClick={onAdd}>
           + 添加第{config.length + 1}个流程</Button>}
-      {config.length > 0 && !formOpen && <Button className='mt12' full onClick={onTimerSave}>保存</Button>}
+      {config.length > 0 && !formOpen 
+        && <Button className='mt12' full onClick={onTimerSave}>保存至本地</Button>}
+      {config.length > 0 && !formOpen && hasLogin
+        && <Button type='secondary' className='mt12' full onClick={onTimerSaveCloud}>保存至云端</Button>}
     </div>
   )
 }

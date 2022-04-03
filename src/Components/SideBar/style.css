@@ -42,6 +42,7 @@
 
 .side-bar-content {
   padding: 0 12px;
+  flex: 1;
 }
 
 .side-bar-divider {

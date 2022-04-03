@@ -16,3 +16,9 @@ npm run dev
 * [CodingTV](https://codingtv.notion.site/)  Notion文档，欢迎给我你的邮箱把你加进项目
 * [什么是TimeShare](https://codingtv.notion.site/Episode-0-Plan-TimeShare-29989e0ac0f148139491ce93f6cea830)
 
+
+### API
+
+* `post - /api/auth/test` get test user info
+* `post - /api/timer/add` add timer config
+* `get - /api/timer/my` get my timers

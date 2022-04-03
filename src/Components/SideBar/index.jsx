@@ -1,8 +1,10 @@
 import ButtonMenu from '../ButtonMenu'
 import Logo from '../../Assets/timeshare-full.svg'
+import AuthFooter from '../../Components/AuthFooter'
+import Button from '../../Components/Button'
 import './style.css'
 
-export default function SideBar ({ config = [], secondary = false, title }) {
+export default function SideBar ({ config = [], secondary = false, user, title, onLogin }) {
   return (
     <div className={`
       side-bar
@@ -37,6 +39,15 @@ export default function SideBar ({ config = [], secondary = false, title }) {
           )
         })}
       </div>
+      {
+        !secondary 
+        ? (user.id
+            ? <AuthFooter username={user.username} avatar={user.avatar} /> 
+            : <div style={{ padding: 20 }}>
+              <Button onClick={onLogin} type='secondary' full>登录</Button>
+            </div>)
+        : null
+      }
     </div>
   )
 }
