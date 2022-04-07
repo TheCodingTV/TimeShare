@@ -17,7 +17,7 @@ const request = async ({
     headers.Authorization = `Bearer ${jwt}`
   }
 
-  const response = await fetch('https://timerstack-1780628-1310797887.ap-shanghai.run.tcloudbase.com' + url,{
+  const response = await fetch('https://bared-timer-1780628-1310797887.ap-shanghai.run.tcloudbase.com' + url,{
     method,
     headers,
     body: JSON.stringify(payload)
@@ -30,14 +30,15 @@ const api = {
   authTest: async () => {
     return await request({
       method: 'post',
-      url: '/api/auth/test',
-      needToken: false
+      url: '/auth/login/test',
+      needToken: false,
+      payload: { id: 5 }
     })
   },
   addTimer: async (payload, jwt) => {
     return await request({
-      'method': 'post',
-      url: '/api/timer/add',
+      method: 'post',
+      url: '/papi/timer/add',
       needToken: true,
       payload,
       jwt
@@ -46,7 +47,7 @@ const api = {
   getMyTimers: async (payload, jwt) => {
     return await request({
       method: 'get',
-      url: '/api/timer/my',
+      url: '/papi/timer/my',
       needToken: true,
       payload,
       jwt
@@ -55,7 +56,7 @@ const api = {
   deleteTimer: async (payload, jwt) => {
     return await request({
       method: 'post',
-      url: '/api/timer/delete',
+      url: '/papi/timer/delete',
       needToken: true,
       payload,
       jwt

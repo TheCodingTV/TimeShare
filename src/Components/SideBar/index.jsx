@@ -42,7 +42,7 @@ export default function SideBar ({ config = [], secondary = false, user, title, 
       {
         !secondary 
         ? (user.id
-            ? <AuthFooter username={user.username} avatar={user.avatar} /> 
+            ? <AuthFooter name={user.name} avatar={user.avatar} /> 
             : <div style={{ padding: 20 }}>
               <Button onClick={onLogin} type='secondary' full>登录</Button>
             </div>)

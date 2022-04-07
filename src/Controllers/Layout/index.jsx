@@ -26,6 +26,8 @@ export default function Layout ({ children, onTimerClick, onCreateClick }) {
       setLocalTimers(JSON.parse(localTimers))
     }
 
+    dispatch({ type: 'AUTH_LOGIN' })
+
   }, [])
 
   const deleteLocalTimer = (idx) => {
