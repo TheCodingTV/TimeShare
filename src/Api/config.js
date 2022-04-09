@@ -17,7 +17,7 @@ const request = async ({
     headers.Authorization = `Bearer ${jwt}`
   }
 
-  const response = await fetch('https://bared-timer-1780628-1310797887.ap-shanghai.run.tcloudbase.com' + url,{
+  const response = await fetch('https://bared-cms-1804794-1311017114.ap-shanghai.run.tcloudbase.com' + url,{
     method,
     headers,
     body: JSON.stringify(payload)
@@ -32,7 +32,7 @@ const api = {
       method: 'post',
       url: '/auth/login/test',
       needToken: false,
-      payload: { id: 5 }
+      payload: { id: 1 }
     })
   },
   addTimer: async (payload, jwt) => {
