@@ -6,7 +6,7 @@ import api from '../../Api/config'
 export const authEpic = action$ => action$.pipe(
   ofType('AUTH_LOGIN'),
   switchMap(_ =>
-    from(api.authTest()).pipe(
+    from(api.authLocal()).pipe(
       switchMap((response) => {
         const { user, jwt } = response
         return concat(

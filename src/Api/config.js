@@ -17,7 +17,7 @@ const request = async ({
     headers.Authorization = `Bearer ${jwt}`
   }
 
-  const response = await fetch('https://bared-cms-1804794-1311017114.ap-shanghai.run.tcloudbase.com' + url,{
+  const response = await fetch(import.meta.env.VITE_API_URL + url,{
     method,
     headers,
     body: JSON.stringify(payload)
@@ -27,12 +27,15 @@ const request = async ({
 }
 
 const api = {
-  authTest: async () => {
+  authLocal: async () => {
     return await request({
       method: 'post',
-      url: '/auth/login/test',
+      url: '/api/auth/login/local',
       needToken: false,
-      payload: { id: 1 }
+      payload: { 
+        username: 'root', 
+        password: 'root'
+      }
     })
   },
   addTimer: async (payload, jwt) => {
