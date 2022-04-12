@@ -1,30 +1,5 @@
 import fetch from 'unfetch'
-
-const request = async ({
-  method,
-  url,
-  needToken,
-  payload,
-  jwt
-}) => {
-
-  const headers = {
-    appid: 'test',
-    'Content-Type': 'application/json'
-  }
-
-  if (needToken) {
-    headers.Authorization = `Bearer ${jwt}`
-  }
-
-  const response = await fetch(import.meta.env.VITE_API_URL + url,{
-    method,
-    headers,
-    body: JSON.stringify(payload)
-  })
-  const data = await response.json()
-  return data
-}
+import request from '@Request'
 
 const api = {
   authLocal: async () => {

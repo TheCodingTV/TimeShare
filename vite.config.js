@@ -7,7 +7,8 @@ export default defineConfig({
   plugins: [react()],
   resolve:{
     alias:{
-      '@Storage' : path.resolve(__dirname, './src/Utils/Storage/index.web.js')
+      '@Storage' : path.resolve(__dirname, './src/Utils/Storage/index.web.js'),
+      '@Request' : path.resolve(__dirname, './src/Utils/Request/index.web.js')
     },
   },
 })

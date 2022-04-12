@@ -106,6 +106,7 @@ input:focus {
 .w100 { width: 100%; }
 .flex1 { flex: 1; }
 .flex-row { display: flex; flex-direction: row; flex-wrap: wrap; }
+.flex-center { display: flex; align-items: center; justify-content: center; }
 .pointer { cursor: pointer; }
 .mt8 { margin-top: 8px; }
 .mt12 { margin-top: 12px; }

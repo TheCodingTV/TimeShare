@@ -13,14 +13,13 @@ export default function TimerPage () {
   }, [])
 
   return (
-    <div>
-      {timer.length > 0 &&
-        <Timer
-          config={[{ totalSeconds: 90, componentType: 'card' }]}
-          onMoveNext={() => {}}
-          sectionId={1}
-          hasNextStep={false}
-        />}
+    <div style={{ marginTop: 100 }}>
+      <Timer
+        config={[{ totalSeconds: 90, componentType: 'row' }]}
+        onMoveNext={() => {}}
+        sectionId={1}
+        hasNextStep={false}
+      />
     </div>
   )
 }
